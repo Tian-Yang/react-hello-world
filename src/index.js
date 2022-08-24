@@ -5,6 +5,7 @@ import {BrowserRouter, Link, Route} from "react-router-dom";
 import StatusExample from "./examples/status/StatusExample";
 import RefExample from "./examples/component/RefExample";
 import {Routes} from "react-router";
+import LifeCycleExample from "./examples/component/LifeCycleExample";
 
 
 class App1 extends React.Component{
@@ -16,6 +17,7 @@ class App1 extends React.Component{
         <ul>
           <li><Link to="/StatusExample">React Status示例</Link></li>
           <li><Link to="/RefExample">React ref示例</Link></li>
+          <li><Link to="/LifeCycleExample">组件生命周期示例</Link></li>
         </ul>
 
         {/*
@@ -44,7 +46,8 @@ const routeConfig =[
     indexRoute:{component:Dashbord},
     childRoutes:[
       {path:'StatusExample',component:StatusExample},
-      {path: 'RefExample',component:RefExample}
+      {path: 'RefExample',component:RefExample},
+      {path: 'LifeCycleExample',component: LifeCycleExample}
     ]
   }
 
@@ -57,6 +60,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/" element={<App1/>}/>
                 <Route path="StatusExample" element={<StatusExample/>}/>
                 <Route path="RefExample" element={<RefExample/>}/>
+                <Route path="LifeCycleExample" element={<LifeCycleExample/>}/>
+
             </Routes>
     </BrowserRouter>
 );

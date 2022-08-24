@@ -14,8 +14,31 @@ function StatusExample(){
       <div>Name is {name},Age is {age}</div>
       {/*此处定义了一个内联函数，使用箭头函数的写法，用户更新state变量的值。*/}
         <button onClick={()=>{setName('xiaohua');setAge(30)}}>点击</button>
+
+      <FatherState/>
     </div>
   )
+}
+
+/**
+ * State传递
+ */
+class FatherState extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state={name:'wang'};
+  }
+  render() {
+    return(
+        <div>
+          <ChildState data ={this.state}></ChildState>
+        </div>
+    )
+  }
+}
+
+function ChildState(props){
+   return <h2>{props.data.name}</h2>
 }
 
 export default StatusExample;
